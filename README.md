@@ -47,16 +47,15 @@ CREATE TABLE data_table (
 
 ###4. Environment Variables
 Create a .env file to configure your environment variables:
-DB_HOST=PUBLIC_IP_OF_YOUR_CLOUD_SQL_INSTANCE # IP of DB 
-DB_NAME=DBname               # Your Cloud SQL database name
-DB_USER=userDB               # Your Cloud SQL user
-DB_PASSWORD=your-password      # Your Cloud SQL user password
-DB_PORT=5432                  # Default PostgreSQL port
+DB_HOST=PUBLIC_IP_OF_YOUR_CLOUD_SQL_INSTANCE # IP of DB   
+DB_NAME=DBname               # Your Cloud SQL database name  
+DB_USER=userDB               # Your Cloud SQL user  
+DB_PASSWORD=your-password      # Your Cloud SQL user password  
+DB_PORT=5432                  # Default PostgreSQL port  
 
- # Google Cloud Pub/Sub
-GCP_PROJECT_ID=project-name
-PUBSUB_SUBSCRIPTION_NAME=backend-subscription
-GOOGLE_APPLICATION_CREDENTIALS=/app/.json
+GCP_PROJECT_ID=project-name  
+PUBSUB_SUBSCRIPTION_NAME=backend-subscription  
+GOOGLE_APPLICATION_CREDENTIALS=/app/.json  
 
 ###5 Install Dependencies
 Install the necessary Python dependencies listed in the requirements.txt file:
