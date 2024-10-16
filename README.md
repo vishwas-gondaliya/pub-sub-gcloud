@@ -20,22 +20,22 @@ Before you start, make sure you have the following:
 
 1. **Create Pub/Sub Topic:**
     
-    gcloud pubsub topics create random-message-topic
+    gcloud pubsub topics create random-message-topic  
     
 
 2. **Create Subscription:**
     
-    gcloud pubsub subscriptions create backend-subscription --topic=random-message-topic
+    gcloud pubsub subscriptions create backend-subscription --topic=random-message-topic  
    
-###2. Set Up the PostgreSQL Database Table
+###2. Set Up the PostgreSQL Database Table  
 
-Once connected to the database, create the necessary table for storing the data:
+Once connected to the database, create the necessary table for storing the data:  
 
 
-CREATE TABLE data_table (
-    id SERIAL PRIMARY KEY,
-    value TEXT NOT NULL
-);
+CREATE TABLE data_table (  
+    id SERIAL PRIMARY KEY,  
+    value TEXT NOT NULL  
+);  
 
 ###3. Create a Service Account and Download Credentials
 
@@ -57,25 +57,25 @@ GCP_PROJECT_ID=project-name
 PUBSUB_SUBSCRIPTION_NAME=backend-subscription  
 GOOGLE_APPLICATION_CREDENTIALS=/app/.json  
 
-###5 Install Dependencies
-Install the necessary Python dependencies listed in the requirements.txt file:
+###5 Install Dependencies  
+Install the necessary Python dependencies listed in the requirements.txt file:  
 pip install -r requirements.txt
 
 ###6 Running the Flask Application
 
-- Start the Flask app to listen for Pub/Sub messages and process them:
-
+Start the Flask app to listen for Pub/Sub messages and process them:  
+  
 python app.py
+  
+Start the subscriber to process messages:  
+  
+curl -X POST http://localhost:5000/start_subscriber  
 
-- Start the subscriber to process messages:
+Running the Message Generator  
+  
+python app2.py  
 
-curl -X POST http://localhost:5000/start_subscriber
-
-- Running the Message Generator
-
-python app2.py
-
-###7 Check if the messages are successfully processed and stored in your Cloud SQL PostgreSQL database. You can query the database to see if the data_table contains the inserted values:
+###7 Check if the messages are successfully processed and stored in your Cloud SQL PostgreSQL database. You can query the database to see if the data_table contains the inserted values:  
 
 SELECT * FROM data_table;
 
