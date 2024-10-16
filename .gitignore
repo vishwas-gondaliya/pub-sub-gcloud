@@ -1,0 +1,3 @@
+# Exclude credentials and environment file
+.env
+*.json
